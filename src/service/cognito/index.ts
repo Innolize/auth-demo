@@ -30,7 +30,10 @@ export const signUp = ({ username, password }: IUserCredentials) => {
 	});
 };
 
-export const signIn = ({ username, password }: IUserCredentials) => {
+export const signIn = ({
+	username,
+	password,
+}: IUserCredentials): Promise<CognitoUserSession | null> => {
 	const authenticationData = {
 		Username: username,
 		Password: password,
@@ -50,9 +53,7 @@ export const signIn = ({ username, password }: IUserCredentials) => {
 	return new Promise((resolve, reject) => {
 		cognitoUser.authenticateUser(authenticationDetails, {
 			onSuccess: function (result) {
-				const accessToken = result.getAccessToken().getJwtToken();
-				console.log(accessToken);
-				resolve(accessToken);
+				resolve(result);
 			},
 
 			onFailure: function (err) {
@@ -63,36 +64,39 @@ export const signIn = ({ username, password }: IUserCredentials) => {
 	});
 };
 
-export const getCurrentSession = async () => {
-	const cognitoUser = userPool.getCurrentUser();
+export const getCurrentSession =
+	async (): Promise<CognitoUserSession | null> => {
+		const cognitoUser = userPool.getCurrentUser();
 
-	return new Promise((resolve, reject) => {
-		if (!cognitoUser) {
-			resolve(null);
-			return;
-		}
-
-		cognitoUser.getSession((err: null | Error, session: CognitoUserSession) => {
-			if (err) {
-				reject(err);
+		return new Promise((resolve, reject) => {
+			if (!cognitoUser) {
+				resolve(null);
 				return;
 			}
 
-			if (session.isValid()) {
-				resolve(session);
-				return;
-			}
-
-			cognitoUser.refreshSession(
-				session.getRefreshToken(),
-				(err: Error, session: CognitoUserSession) => {
+			cognitoUser.getSession(
+				(err: null | Error, session: CognitoUserSession) => {
 					if (err) {
 						reject(err);
 						return;
 					}
-					resolve(session);
+
+					if (session.isValid()) {
+						resolve(session);
+						return;
+					}
+
+					cognitoUser.refreshSession(
+						session.getRefreshToken(),
+						(err: Error, session: CognitoUserSession) => {
+							if (err) {
+								reject(err);
+								return;
+							}
+							resolve(session);
+						},
+					);
 				},
 			);
 		});
-	});
-};
+	};
