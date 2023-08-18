@@ -9,11 +9,15 @@
       ],
       "Enabled": true,
       "Password": "password",
-      "RefreshTokens": [],
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE2OTIzMjM0NzgsImp0aSI6IjdjMjBmZmY4LWE5YzItNGE2OC1iMjc1LTZjNTlmZmIyZGI3MSIsImV4cCI6MTY5MjkyODI3OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzdjU01HWjZoIn0.QOsN0hwIcnQuvyfcAub_M2MkRnXNGggky-4ECpbnf6DQzS8QE4gnU-12k7w7aPxthPtReKQqr9zFsGQI_bL-ARbbDUj7RcODfclepbAGHYgjA2iwRrb374VynIvuhy4DgYqDaUk-vY6cJgmmDLdOfHfW3caUGZ6ki6q0k-faJ01YVvMuHkBvI4UHtLHLZFR1fvcQSUaAL7g5BfZR00XbeqW6i1dw0JXo9qIxWfkUdU7FnM4bv3npf920sT-S6x0DydJlXgJ6oJC7gUN9PCW9-WDLd2vZKKnrjbowfN-Ema1xqW9RzEvu3QMalnSJSfxob4iDmB-p59LHU94CbLk7Pg",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE2OTIzMjM1MDEsImp0aSI6IjBkNzdlNGJjLTRjZWMtNDE2Yy05YTk5LWRlNDcxYzU0MTMzNCIsImV4cCI6MTY5MjkyODMwMSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzdjU01HWjZoIn0.ITxlDnfuh-OIBODpwbXrodRr8VEVR7sCDAwEB2fJxmmigC-ka5QyBkwmBXR3x6IzwdKNbhd2mT7X_zMnsKoIKIwRB5Ren5kBgA72fligehjJzKEsY1R6Kn7tBfOVX3kfSCOo8eczRvSFk8kBXMtF9bGq49QsIBhjHoec2EQmCKnm_xiR9qY7zU8jW5I7-wUGm5Ax7uicXtqjfB6_PqmbZmaVQh2DGxHkCHToRDXofRQK2LXm2y77MMfv0TsSTvakGyB2RYgT-JwbfoLRbJI2UqC4cn8Lor0PYpBgHNLiafaubmFHFmbgsudwyFZ0IRIFdGv-yIbc9TrhddTEaOSoDw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoidXNlcm5hbWUiLCJpYXQiOjE2OTIzMjM2MjYsImp0aSI6IjQ5M2FkNDg3LTBiNGEtNDhiNi05YWJmLTYzOGU4MTc4ZWJkMiIsImV4cCI6MTY5MjkyODQyNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzdjU01HWjZoIn0.FBT1170GHo0ZzrfNf4_8zJyhDzYQZ-MB3XObsDZ6K8cOK4RUX0jl5X_Shz4YARPOAMf0fHm5AbRmPmJZjUlruSnpM8csAAOy72f2mEmMHXE3PRmZ29FNdpUXqA2UWk83V19s0mPDUqtJ0DMk5HA4KDqKk8eNppa7tqjxLwRWGzXkdduiQplpjMv4Fo-kIZB8NYCi--OoTc-9Wi23S96kC-tN04IgrlwVqHYE3lGH0CRC6X5Xd_rQY8rrOepPqTKP-3DzqpFEiYACKPkmgP6KNn7GocVcU4uBLW073-R6X0wM94rERQpQeLuJHgm0vgXub2oamaTYGtPUjO1qOPMvRg"
+      ],
       "UserCreateDate": "2023-08-18T00:47:48.169Z",
       "UserLastModifiedDate": "2023-08-18T00:47:48.169Z",
       "Username": "username",
-      "UserStatus": "UNCONFIRMED",
+      "UserStatus": "CONFIRMED",
       "ConfirmationCode": "654512"
     },
     "undefined": {
