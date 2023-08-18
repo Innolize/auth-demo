@@ -23,6 +23,9 @@ for (const x in rawAlias) {
 // https://vitejs.dev/config/
 // https://vitest.dev/config/
 export default defineConfig({
+	define: {
+		global: {},
+	},
 	resolve: {
 		alias,
 	},
