@@ -1,13 +1,23 @@
 import { useState } from 'react';
 
-import { signUp } from '@/service/cognito';
+import { signIn } from '@/service/cognito';
 
-export const SignUp = () => {
+export const SignIn = () => {
 	const [username, setUsername] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
+
+	const handleOnSignIn = () => {
+		try {
+			signIn({ username, password });
+			window.alert("You've signed in!");
+		} catch (error) {
+			window.alert('Error: ' + error);
+		}
+	};
+
 	return (
 		<div>
-			<h1>Sign Up</h1>
+			<h1>Sign in Page</h1>
 			<div>
 				<label htmlFor="username">
 					username
@@ -25,7 +35,7 @@ export const SignUp = () => {
 						value={password}
 					></input>
 				</label>
-				<button onClick={() => signUp({ username, password })}>Sign Up</button>
+				<button onClick={handleOnSignIn}>Sign In</button>
 			</div>
 		</div>
 	);
