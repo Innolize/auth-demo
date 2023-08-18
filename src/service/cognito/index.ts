@@ -2,6 +2,7 @@ import {
 	AuthenticationDetails,
 	CognitoUser,
 	CognitoUserPool,
+	CognitoUserSession,
 	ICognitoUserPoolData,
 } from 'amazon-cognito-identity-js';
 
@@ -58,5 +59,39 @@ export const signIn = ({ username, password }: IUserCredentials) => {
 		onFailure: function (err) {
 			alert(err.message || JSON.stringify(err));
 		},
+	});
+};
+
+export const getCurrentSession = async () => {
+	const cognitoUser = userPool.getCurrentUser();
+
+	return new Promise((resolve, reject) => {
+		if (!cognitoUser) {
+			resolve(null);
+			return;
+		}
+
+		cognitoUser.getSession((err: null | Error, session: CognitoUserSession) => {
+			if (err) {
+				reject(err);
+				return;
+			}
+
+			if (session.isValid()) {
+				resolve(session);
+				return;
+			}
+
+			cognitoUser.refreshSession(
+				session.getRefreshToken(),
+				(err: Error, session: CognitoUserSession) => {
+					if (err) {
+						reject(err);
+						return;
+					}
+					resolve(session);
+				},
+			);
+		});
 	});
 };

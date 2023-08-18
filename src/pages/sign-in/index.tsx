@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { signIn } from '@/service/cognito';
 
 export const SignIn = () => {
+	const navigate = useNavigate();
 	const [username, setUsername] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 
@@ -10,6 +12,7 @@ export const SignIn = () => {
 		try {
 			signIn({ username, password });
 			window.alert("You've signed in!");
+			navigate('/');
 		} catch (error) {
 			window.alert('Error: ' + error);
 		}
