@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import { signUp } from '@/service/cognito';
 
-export const SignUp = () => {
+export const SignIn = () => {
 	const [username, setUsername] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	return (
 		<div>
-			<h1>Sign Up</h1>
+			<h1>Sign in Page</h1>
 			<div>
 				<label htmlFor="username">
 					username
@@ -25,7 +25,7 @@ export const SignUp = () => {
 						value={password}
 					></input>
 				</label>
-				<button onClick={() => signUp({ username, password })}>Sign Up</button>
+				<button onClick={() => signUp({ username, password })}>Sign In</button>
 			</div>
 		</div>
 	);
