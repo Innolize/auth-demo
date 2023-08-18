@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { AuthRoutesGuard } from '@/guard/AuthRoutes';
-import { ProtectedRoutesGuard } from '@/guard/ProtectedRoutes';
+import { AuthRoutesGuard } from '@/components/router/AuthRoutes';
+import { ProtectedRoutesGuard } from '@/components/router/ProtectedRoutes';
 import { SignIn } from '@/pages/sign-in';
 import { SignUp } from '@/pages/sign-up';
 
