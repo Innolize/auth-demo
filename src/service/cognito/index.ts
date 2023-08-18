@@ -36,8 +36,6 @@ export const signIn = ({ username, password }: IUserCredentials) => {
 		Password: password,
 	};
 
-	const userPool = new CognitoUserPool(poolData);
-
 	const userData = {
 		Username: username,
 		Pool: userPool,
@@ -49,16 +47,19 @@ export const signIn = ({ username, password }: IUserCredentials) => {
 
 	cognitoUser.setAuthenticationFlowType('USER_PASSWORD_AUTH');
 
-	cognitoUser.authenticateUser(authenticationDetails, {
-		onSuccess: function (result) {
-			const accessToken = result.getAccessToken().getJwtToken();
-			console.log(accessToken);
-			return accessToken;
-		},
+	return new Promise((resolve, reject) => {
+		cognitoUser.authenticateUser(authenticationDetails, {
+			onSuccess: function (result) {
+				const accessToken = result.getAccessToken().getJwtToken();
+				console.log(accessToken);
+				resolve(accessToken);
+			},
 
-		onFailure: function (err) {
-			alert(err.message || JSON.stringify(err));
-		},
+			onFailure: function (err) {
+				alert(err.message || JSON.stringify(err));
+				reject(err);
+			},
+		});
 	});
 };
 

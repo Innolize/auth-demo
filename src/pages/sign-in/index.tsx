@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
 
+import { authContext } from '@/context/authContext';
 import { signIn } from '@/service/cognito';
 
 export const SignIn = () => {
-	const navigate = useNavigate();
+	const auth = useContext(authContext);
+
 	const [username, setUsername] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 
-	const handleOnSignIn = () => {
+	const handleOnSignIn = async () => {
 		try {
-			signIn({ username, password });
-			window.alert("You've signed in!");
-			navigate('/');
+			const user = await signIn({ username, password });
+			auth.handleLogIn(user);
 		} catch (error) {
 			window.alert('Error: ' + error);
 		}
